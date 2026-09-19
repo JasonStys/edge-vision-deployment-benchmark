@@ -122,7 +122,7 @@ runtimes match reference vectors within `1e-5`, and all static analysis, tests, 
 security workflows pass. Performance numbers are characterization evidence rather than universal
 guarantees because shared-runner hardware varies.
 
-The checked release evidence records 100% accuracy on the 48-example synthetic test split, 97.34%
+The checked release evidence records 100% accuracy on the 48-example synthetic test split, 97.36%
 branch-aware Python coverage, and maximum C++/Rust reference error of `1.1920929e-7`. These results
 validate the repository contract; they are not claims about real-camera performance.
 

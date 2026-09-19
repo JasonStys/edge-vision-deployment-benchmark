@@ -1,6 +1,6 @@
 # File: Defines the Python package, exact quality gates, and command-line entry point.
 [build-system]
-requires = ["hatchling==1.27.0"]
+requires = ["hatchling==1.32.0"]
 build-backend = "hatchling.build"
 
 [project]
@@ -23,7 +23,7 @@ dev = [
   "mypy==2.3.1",
   "pip-audit==2.10.1",
   "pytest==9.1.1",
-  "pytest-cov==7.0.0",
+  "pytest-cov==7.1.0",
   "ruff==0.16.8",
 ]
 
@@ -40,7 +40,7 @@ testpaths = ["tests"]
 [tool.coverage.run]
 branch = true
 source = ["edgevision"]
-omit = ["src/edgevision/__main__.py"]
+omit = ["*/edgevision/__main__.py"]
 
 [tool.coverage.report]
 show_missing = true

@@ -8,9 +8,10 @@ colorama==0.4.6
 coverage==7.16.1
 cyclonedx-python-lib==11.12.0
 defusedxml==0.7.1
+editables==0.6
 filelock==4.0.1
 flatbuffers==25.12.19
-hatchling==1.27.0
+hatchling==1.32.0
 idna==3.20
 iniconfig==2.3.0
 librt==0.15.0
@@ -37,13 +38,14 @@ py-serializable==2.1.0
 Pygments==2.21.0
 pyparsing==3.3.2
 pytest==9.1.1
-pytest-cov==7.0.0
+pytest-cov==7.1.0
 requests==2.34.2
 rich==15.0.0
 ruff==0.16.8
 sortedcontainers==2.4.0
 tomli==2.4.1
 tomli_w==1.2.0
+tomlkit==0.15.1
 trove-classifiers==2026.6.1.19
 typing_extensions==4.16.0
 urllib3==2.8.0
