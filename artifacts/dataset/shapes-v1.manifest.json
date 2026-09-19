@@ -1,0 +1,13 @@
+{
+  "dataset_sha256": "314cd9d7e7ff699791baeb57b9dec6f64f004403a107bfe5099bb7e3d238fd22",
+  "format": "numpy-npz",
+  "image_shape": [
+    8,
+    8
+  ],
+  "split_counts": {
+    "test": 48,
+    "train": 144,
+    "validation": 48
+  }
+}

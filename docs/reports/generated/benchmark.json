@@ -1,0 +1,41 @@
+{
+  "methodology": {
+    "batch_size": 48,
+    "device": "current CPU; compare runs only on the same host",
+    "iterations": 30,
+    "warmups": 5
+  },
+  "onnx_float32": {
+    "batch_size": 48,
+    "energy_proxy_joules_per_1000_images": 0.015069791666666669,
+    "energy_proxy_method": "elapsed_seconds_per_image * assumed_watts; not a hardware reading",
+    "iterations": 30,
+    "latency_ms_per_image_p50": 0.0009343750000000001,
+    "latency_ms_per_image_p95": 0.001504583333333333,
+    "latency_ms_per_image_p99": 0.0015912083333333334,
+    "python_tracemalloc_peak_bytes": 15650,
+    "throughput_images_per_second": 995368.7703048316
+  },
+  "onnx_int8_dynamic_weights": {
+    "batch_size": 48,
+    "energy_proxy_joules_per_1000_images": 0.018778124999999996,
+    "energy_proxy_method": "elapsed_seconds_per_image * assumed_watts; not a hardware reading",
+    "iterations": 30,
+    "latency_ms_per_image_p50": 0.00121875,
+    "latency_ms_per_image_p95": 0.001743958333333333,
+    "latency_ms_per_image_p99": 0.002345937500000001,
+    "python_tracemalloc_peak_bytes": 13663,
+    "throughput_images_per_second": 798801.7973040439
+  },
+  "portable_numpy": {
+    "batch_size": 48,
+    "energy_proxy_joules_per_1000_images": 0.021464583333333336,
+    "energy_proxy_method": "elapsed_seconds_per_image * assumed_watts; not a hardware reading",
+    "iterations": 30,
+    "latency_ms_per_image_p50": 0.0013750000000000001,
+    "latency_ms_per_image_p95": 0.0016880208333333333,
+    "latency_ms_per_image_p99": 0.0019648958333333337,
+    "python_tracemalloc_peak_bytes": 16728,
+    "throughput_images_per_second": 698825.5847811317
+  }
+}

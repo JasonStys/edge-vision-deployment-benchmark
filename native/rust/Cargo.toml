@@ -1,0 +1,23 @@
+# File: Defines the dependency-free Rust portable-inference crate and CLI.
+[package]
+name = "edgevision-native"
+version = "1.0.0"
+edition = "2024"
+rust-version = "1.90"
+license = "MIT"
+description = "Bounded native inference for EDGEVISION_MLP artifacts"
+
+[lib]
+name = "edgevision_native"
+path = "src/lib.rs"
+
+[[bin]]
+name = "edgevision-rust"
+path = "src/main.rs"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = true
+

@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "artifact SHA-256 and size manifest",
+    "dataset schema and deterministic content digest",
+    "portable model bounds and tensor shapes",
+    "ONNX checker and strict shape inference",
+    "portable and ONNX reference-vector agreement"
+  ],
+  "onnx_reference_max_abs": 1.1920928955078125e-07,
+  "portable_reference_max_abs": 0.0,
+  "status": "passed"
+}

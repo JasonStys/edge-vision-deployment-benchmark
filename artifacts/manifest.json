@@ -1,0 +1,45 @@
+{
+  "files": {
+    "artifacts/dataset/shapes-v1.manifest.json": {
+      "bytes": 233,
+      "sha256": "0852a0332c3274af36fa617b347e326f16cf5db0ec401d6b41ec91840c095fc4"
+    },
+    "artifacts/dataset/shapes-v1.npz": {
+      "bytes": 36140,
+      "sha256": "28da08611e566ec57a7f7880712126c153b117774d8bd252780c7986910d03fa"
+    },
+    "artifacts/model/compact-mlp.evm": {
+      "bytes": 24465,
+      "sha256": "16b5a7509b6279d8d79d4fa7ffda562e5ddb1022a076668efc2a17fb2ad2fa8a"
+    },
+    "artifacts/model/compact-mlp.int8.onnx": {
+      "bytes": 5296,
+      "sha256": "dd74ca14c72472feb5ec1e7bb288f49192f57a598b8c74caa4f5c81b0f112416"
+    },
+    "artifacts/model/compact-mlp.onnx": {
+      "bytes": 8536,
+      "sha256": "c29962fc879f6de72c34253c1acb70601992560369f32ecce64d17eeac17a137"
+    },
+    "artifacts/reference-predictions.csv": {
+      "bytes": 856,
+      "sha256": "45a3a630ddae333b9d6692b4cbe5b369a6a188af49a74c9a6f1da7f5a36b69cc"
+    },
+    "artifacts/test-vectors.csv": {
+      "bytes": 8976,
+      "sha256": "4a1adf5159bef2ec88b38f3f50abcd6f8c9ef645815e1dc4d4c3eb8985e84d1c"
+    },
+    "docs/reports/generated/MODEL_CARD.md": {
+      "bytes": 1151,
+      "sha256": "c719dcdc0fd95fad4f6f8c1c60091f35e22f34bcd9d295ec3959f1616f72f668"
+    },
+    "docs/reports/generated/benchmark.json": {
+      "bytes": 1633,
+      "sha256": "8fcb5990a01869e98baaa6f4680cfeb401b9b12afcaa40d0570ec2860251e706"
+    },
+    "docs/reports/generated/metrics.json": {
+      "bytes": 5435,
+      "sha256": "ed80292c70dc4f2832512500cea3d169ab81337f30ebce2f9fde0fe1836ecf18"
+    }
+  },
+  "format_version": 1
+}

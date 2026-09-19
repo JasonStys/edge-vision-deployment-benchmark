@@ -1,0 +1,6 @@
+# File: Pins the Rust compiler and quality components used by native inference.
+[toolchain]
+channel = "1.90.0"
+components = ["clippy", "rustfmt"]
+profile = "minimal"
+

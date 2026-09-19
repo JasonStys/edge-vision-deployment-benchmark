@@ -1,0 +1,67 @@
+# File: Defines the Python package, exact quality gates, and command-line entry point.
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "edge-vision-deployment-benchmark"
+version = "1.0.0"
+description = "Reproducible neural-image deployment, ONNX export, robustness evaluation, and native runtime benchmarking."
+readme = "README.md"
+requires-python = ">=3.12,<3.15"
+license = { file = "LICENSE" }
+authors = [{ name = "Jason Stys" }]
+dependencies = [
+  "numpy==2.5.3",
+  "onnx==1.23.0",
+  "onnxruntime==1.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "coverage==7.16.1",
+  "mypy==2.3.1",
+  "pip-audit==2.10.1",
+  "pytest==9.1.1",
+  "pytest-cov==7.0.0",
+  "ruff==0.16.8",
+]
+
+[project.scripts]
+edge-vision-benchmark = "edgevision.pipeline:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/edgevision"]
+
+[tool.pytest.ini_options]
+addopts = "--strict-config -p no:cacheprovider --basetemp=.pytest-runtime --cov=edgevision --cov-report=term-missing --cov-report=xml --cov-fail-under=94"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["edgevision"]
+omit = ["src/edgevision/__main__.py"]
+
+[tool.coverage.report]
+show_missing = true
+exclude_also = ["if __name__ == .__main__.:", "raise NotImplementedError"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["A", "ARG", "B", "C4", "E", "F", "I", "N", "PERF", "PIE", "PL", "RUF", "S", "SIM", "UP"]
+ignore = ["S101"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["PLR2004", "S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+packages = ["edgevision"]
+
+[[tool.mypy.overrides]]
+module = ["onnxruntime.*"]
+ignore_missing_imports = true

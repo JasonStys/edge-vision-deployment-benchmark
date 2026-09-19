@@ -1,0 +1,5 @@
+# File: Keeps source text normalized and identifies generated binary model artifacts.
+* text=auto eol=lf
+*.onnx binary
+*.npz binary
+

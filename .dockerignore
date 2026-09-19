@@ -1,0 +1,11 @@
+# File: Limits the container build context to reproducible source and model artifacts.
+.git
+.github
+.venv
+.runtime
+build
+native/cpp/build*
+native/rust/target
+htmlcov
+__pycache__
+

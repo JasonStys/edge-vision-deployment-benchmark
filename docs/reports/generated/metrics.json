@@ -1,0 +1,307 @@
+{
+  "agreement": {
+    "float_to_quantized_max_abs": 1.0728836059570312e-06,
+    "portable_to_onnx_max_abs": 1.1920928955078125e-07
+  },
+  "baseline": {
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        16
+      ]
+    ],
+    "ece_10_bin": 0.16209858283400533,
+    "negative_log_likelihood": 0.19492520047563247,
+    "per_class": {
+      "diagonal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "horizontal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "vertical": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "sample_count": 48
+  },
+  "corruptions": {
+    "dim": {
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          16,
+          0
+        ],
+        [
+          0,
+          0,
+          16
+        ]
+      ],
+      "ece_10_bin": 0.0013373630742231635,
+      "negative_log_likelihood": 0.0013397718106511996,
+      "per_class": {
+        "diagonal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "horizontal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "vertical": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "sample_count": 48
+    },
+    "gaussian": {
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          16,
+          0
+        ],
+        [
+          0,
+          0,
+          16
+        ]
+      ],
+      "ece_10_bin": 0.00022404268383979797,
+      "negative_log_likelihood": 0.0002248427007692996,
+      "per_class": {
+        "diagonal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "horizontal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "vertical": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "sample_count": 48
+    },
+    "occlusion": {
+      "accuracy": 1.0,
+      "confusion_matrix": [
+        [
+          16,
+          0,
+          0
+        ],
+        [
+          0,
+          16,
+          0
+        ],
+        [
+          0,
+          0,
+          16
+        ]
+      ],
+      "ece_10_bin": 9.16607677936554e-05,
+      "negative_log_likelihood": 9.169668095753072e-05,
+      "per_class": {
+        "diagonal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "horizontal": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "vertical": {
+          "f1": 1.0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "sample_count": 48
+    }
+  },
+  "dataset": {
+    "dataset_sha256": "314cd9d7e7ff699791baeb57b9dec6f64f004403a107bfe5099bb7e3d238fd22",
+    "format": "numpy-npz",
+    "image_shape": [
+      8,
+      8
+    ],
+    "split_counts": {
+      "test": 48,
+      "train": 144,
+      "validation": 48
+    }
+  },
+  "onnx_float32": {
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        16
+      ]
+    ],
+    "ece_10_bin": 9.189049402502647e-07,
+    "negative_log_likelihood": 9.18906272624014e-07,
+    "per_class": {
+      "diagonal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "horizontal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "vertical": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "sample_count": 48
+  },
+  "onnx_int8_dynamic_weights": {
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        16
+      ]
+    ],
+    "ece_10_bin": 8.891026178625694e-07,
+    "negative_log_likelihood": 8.891038244128803e-07,
+    "per_class": {
+      "diagonal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "horizontal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "vertical": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "sample_count": 48
+  },
+  "portable_float32": {
+    "accuracy": 1.0,
+    "confusion_matrix": [
+      [
+        16,
+        0,
+        0
+      ],
+      [
+        0,
+        16,
+        0
+      ],
+      [
+        0,
+        0,
+        16
+      ]
+    ],
+    "ece_10_bin": 9.13937886592997e-07,
+    "negative_log_likelihood": 9.139392240021664e-07,
+    "per_class": {
+      "diagonal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "horizontal": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "vertical": {
+        "f1": 1.0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "sample_count": 48
+  },
+  "training": {
+    "epochs": 260,
+    "final_loss": 0.0064999831282981846,
+    "initial_loss": 1.0275206381478834,
+    "temperature": 0.35
+  }
+}
