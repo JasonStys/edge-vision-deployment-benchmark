@@ -22,7 +22,7 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 ## GitHub automation
 
 - `.github/dependabot.yml`: weekly Python, Cargo, Docker, and action update proposals.
-- `.github/workflows/ci.yml`: Python, audit, native, agreement, repository, and container gates.
+- `.github/workflows/ci.yml`: Python, locked Rust audit, native agreement, repository, and container gates.
 - `.github/workflows/codeql.yml`: Python/Rust no-build analysis and manually built C++ analysis.
 - `.github/workflows/dependency-review.yml`: high-severity dependency change rejection on pull requests.
 
@@ -109,4 +109,3 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 - `docs/reports/generated/metrics.json`: clean, baseline, corruption, calibration, and agreement data.
 - `docs/reports/generated/benchmark.json`: host-local methodology and runtime measurements.
 - `docs/reports/generated/validation.json`: machine-readable integrity/structure/agreement status.
-
