@@ -1,6 +1,6 @@
-/** File: Provides the C++ command-line adapter for portable inference and CSV output.
- * Functions: main validates arguments, loads artifacts, and reports exceptions. Variables: model,
- * cases, and paths are limited to one invocation; exact lines are indexed in docs/CODE_INDEX.md.
+/** File: Provides the C++ repository-root adapter for portable inference and CSV output.
+ * Functions: main loads fixed repository artifacts and reports exceptions. Variables: model,
+ * cases, and allow-listed repository paths are limited to one invocation; exact lines are indexed.
  */
 #include "edgevision/model.hpp"
 
@@ -8,15 +8,19 @@
 #include <filesystem>
 #include <iostream>
 
-int main(const int argument_count, const char* const arguments[]) {
-  if (argument_count != 4) {
-    std::cerr << "usage: edgevision_cpp MODEL.evm VECTORS.csv OUTPUT.csv\n";
-    return 2;
-  }
+namespace {
+
+const std::filesystem::path kModelPath{"artifacts/model/compact-mlp.evm"};
+const std::filesystem::path kVectorPath{"artifacts/test-vectors.csv"};
+const std::filesystem::path kOutputPath{".runtime/cpp.csv"};
+
+}  // namespace
+
+int main() {
   try {
-    const auto model = edgevision::Model::load(std::filesystem::path(arguments[1]));
-    const auto cases = edgevision::load_vectors(std::filesystem::path(arguments[2]));
-    edgevision::write_predictions(std::filesystem::path(arguments[3]), model, cases);
+    const auto model = edgevision::Model::load(kModelPath);
+    const auto cases = edgevision::load_vectors(kVectorPath);
+    edgevision::write_predictions(kOutputPath, model, cases);
     std::cout << "wrote " << cases.size() << " prediction rows\n";
     return 0;
   } catch (const std::exception& error) {
@@ -24,4 +28,3 @@ int main(const int argument_count, const char* const arguments[]) {
     return 1;
   }
 }
-

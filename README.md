@@ -78,10 +78,13 @@ cmake --build .runtime/cpp --config Release
 ctest --test-dir .runtime/cpp -C Release --output-on-failure
 cargo test --manifest-path native/rust/Cargo.toml --locked
 
-.runtime/cpp/edgevision_cpp artifacts/model/compact-mlp.evm artifacts/test-vectors.csv .runtime/cpp.csv
+.runtime/cpp/edgevision_cpp
 cargo run --release --locked --manifest-path native/rust/Cargo.toml -- artifacts/model/compact-mlp.evm artifacts/test-vectors.csv .runtime/rust.csv
 python scripts/compare-native.py --reference artifacts/reference-predictions.csv --candidate .runtime/cpp.csv --candidate .runtime/rust.csv
 ```
+
+Run the C++ executable from the repository root. It intentionally uses the allow-listed model,
+vector, and output paths shown above instead of accepting filesystem paths from command-line input.
 
 `scripts/verify.sh` runs the full local Linux/macOS sequence. Windows users can run the same commands
 individually; CI exercises the reference Ubuntu toolchain.

@@ -25,9 +25,9 @@ include(CTest)
 if(BUILD_TESTING)
   add_executable(edgevision_cpp_tests tests/model_tests.cpp)
   target_link_libraries(edgevision_cpp_tests PRIVATE edgevision_model)
-  add_test(
-    NAME edgevision_cpp_tests
-    COMMAND edgevision_cpp_tests "${CMAKE_CURRENT_SOURCE_DIR}/../../artifacts/model/compact-mlp.evm"
+  add_test(NAME edgevision_cpp_tests COMMAND edgevision_cpp_tests)
+  set_tests_properties(
+    edgevision_cpp_tests
+    PROPERTIES WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../.."
   )
 endif()
-

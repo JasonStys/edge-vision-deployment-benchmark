@@ -96,7 +96,7 @@ jobs:
           cargo build --manifest-path native/rust/Cargo.toml --release --locked
       - name: Run native inference
         run: |
-          .runtime/cpp/edgevision_cpp artifacts/model/compact-mlp.evm artifacts/test-vectors.csv .runtime/cpp.csv
+          .runtime/cpp/edgevision_cpp
           native/rust/target/release/edgevision-rust artifacts/model/compact-mlp.evm artifacts/test-vectors.csv .runtime/rust.csv
       - name: Enforce cross-runtime agreement
         run: >-

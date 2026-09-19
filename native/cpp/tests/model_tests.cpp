@@ -23,10 +23,10 @@ void require(const bool condition, const std::string_view message) {
 
 }  // namespace
 
-int main(const int argument_count, const char* const arguments[]) {
+int main() {
   try {
-    require(argument_count == 2, "test requires the generated model path");
-    const auto model = edgevision::Model::load(std::filesystem::path(arguments[1]));
+    const std::filesystem::path model_path{"artifacts/model/compact-mlp.evm"};
+    const auto model = edgevision::Model::load(model_path);
     std::array<float, edgevision::kInputSize> features{};
     const auto probabilities = model.predict(features);
     float sum = 0.0F;
@@ -51,4 +51,3 @@ int main(const int argument_count, const char* const arguments[]) {
     return 1;
   }
 }
-

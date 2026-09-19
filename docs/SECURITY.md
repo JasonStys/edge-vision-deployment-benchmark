@@ -16,6 +16,8 @@ or manifest files. GitHub Actions and package registries are supply-chain bounda
 - ONNX files have a 2 MB limit, checker validation, strict shape inference, CPU-only provider, and
   checksums. Only repository-generated models are executed.
 - Artifact manifest paths are resolved beneath the repository root and checked by size and SHA-256.
+- The C++ adapter uses fixed repository-relative model, vector, and output paths; untrusted CLI input
+  cannot select a filesystem location.
 - Native code uses bounds-aware containers, warnings as errors, sanitizers, Clippy, and CodeQL.
 - Python dependencies and Rust resolution are locked; actions are pinned to full commit SHAs.
 - Workflows default to read-only contents and grant only the minimum security-event permission needed.
@@ -26,4 +28,3 @@ Structural validation cannot make an arbitrary third-party ONNX graph safe. SHA-
 but is not a signature. Hosted runner results do not attest a physical device. Dependency scanning
 does not prove absence of unknown vulnerabilities. Production deployment should isolate inference,
 sign artifacts, verify signatures before load, apply OS resource limits, and monitor runtime behavior.
-

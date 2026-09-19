@@ -23,7 +23,6 @@ cargo fmt --manifest-path native/rust/Cargo.toml --all -- --check
 cargo clippy --manifest-path native/rust/Cargo.toml --all-targets -- -D warnings
 cargo test --manifest-path native/rust/Cargo.toml
 
-"${runtime}/cpp/edgevision_cpp" artifacts/model/compact-mlp.evm artifacts/test-vectors.csv "${runtime}/cpp.csv"
+"${runtime}/cpp/edgevision_cpp"
 cargo run --quiet --release --manifest-path native/rust/Cargo.toml -- artifacts/model/compact-mlp.evm artifacts/test-vectors.csv "${runtime}/rust.csv"
 python scripts/compare-native.py --reference artifacts/reference-predictions.csv --candidate "${runtime}/cpp.csv" --candidate "${runtime}/rust.csv"
-

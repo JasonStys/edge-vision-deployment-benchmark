@@ -45,7 +45,7 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 - `native/cpp/CMakeLists.txt`: C++20 targets, strict warnings, sanitizers, and CTest registration.
 - `native/cpp/include/edgevision/model.hpp`: public constants, types, parser, inference, and CSV API.
 - `native/cpp/src/model.cpp`: strict portable/CSV parsing, dense inference, softmax, and output.
-- `native/cpp/src/main.cpp`: argument validation, orchestration, error reporting, and exit status.
+- `native/cpp/src/main.cpp`: allow-listed repository paths, orchestration, errors, and exit status.
 - `native/cpp/tests/model_tests.cpp`: model loading, probability, and invalid-feature tests.
 
 ## Rust native runtime
