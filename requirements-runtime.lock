@@ -1,10 +1,16 @@
 # File: requirements-runtime.lock
-# Purpose: Resolved production ONNX inference dependencies for the non-root image.
+# Purpose: Resolved inference and non-isolated build dependencies for the non-root image.
+editables==0.6
 flatbuffers==25.12.19
+hatchling==1.32.4
 ml-dtypes==0.6.0
 numpy==2.5.4
 onnx==1.23.2
 onnxruntime==1.31.0
 packaging==26.3
+pathspec==1.1.1
+pluggy==1.7.0
 protobuf==7.36.2
+tomlkit==0.15.2
+trove-classifiers==2026.9.21.13
 typing-extensions==4.16.0
