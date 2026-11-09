@@ -45,6 +45,7 @@ from edgevision.model import (
     train_model,
     write_model,
 )
+from edgevision.review import ReviewLimits, deployment_review
 from edgevision.runtime import OnnxPredictor, maximum_absolute_error
 
 
@@ -253,9 +254,13 @@ def build_parser() -> argparse.ArgumentParser:
     """Build a small explicit CLI with repository-root and report-path controls."""
 
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("command", choices=("build", "validate", "benchmark"))
+    parser.add_argument("command", choices=("build", "validate", "benchmark", "review"))
     parser.add_argument("--root", type=Path, default=Path.cwd())
     parser.add_argument("--report", type=Path)
+    parser.add_argument("--minimum-accuracy", type=float, default=0.90)
+    parser.add_argument("--minimum-class-recall", type=float, default=0.75)
+    parser.add_argument("--maximum-ece", type=float, default=0.25)
+    parser.add_argument("--maximum-runtime-error", type=float, default=0.01)
     return parser
 
 
@@ -268,6 +273,20 @@ def main(argv: list[str] | None = None) -> int:
         result: object = build_artifacts(root)
     elif arguments.command == "validate":
         result = validate_artifacts(root)
+    elif arguments.command == "review":
+        result = deployment_review(
+            root,
+            ReviewLimits(
+                arguments.minimum_accuracy,
+                arguments.minimum_class_recall,
+                arguments.maximum_ece,
+                arguments.maximum_runtime_error,
+            ),
+        )
+        if arguments.report:
+            with arguments.report.open("x", encoding="utf-8") as output:
+                json.dump(result, output, indent=2, sort_keys=True)
+                output.write("\n")
     else:
         destination = arguments.report or root / ".runtime/benchmark.json"
         result = run_benchmarks(root, destination)

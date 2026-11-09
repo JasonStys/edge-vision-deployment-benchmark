@@ -1,0 +1,9 @@
+# Deployment candidate review
+
+Author: Jason Stys. This workflow supports engineers reviewing the repository's small synthetic classifier variants; it is not a camera or safety-system qualification.
+
+Run `python -m edgevision review --root . --report NEW.json` after normal artifact validation. The command checks the existing manifest before loading models, then compares all three runtime variants on the exact same test split and deterministic corruptions. The portable model is the probability reference. Each runtime/condition gets explicit pass/fail gates for accuracy, worst class recall, ten-bin ECE and maximum probability error. Default limits are0.90/0.75/0.25/0.01 respectively; users may select finite0–1 values without modifying trained artifacts or release gates.
+
+The report includes every per-class precision/recall/F1 and confusion matrix, sample counts, failed gate names, a unique review ID, dataset digest, manifest/model SHA-256 and byte sizes. Fresh CPU p50/p95/p99, throughput and Python traced memory are collected in the same invocation with common inputs/warmups/iterations. Timings vary; compare variants within that run and repeat on the intended device. Tracemalloc excludes native allocations. Energy is an assumed-wattage elapsed-time proxy, never measured power. No automatic winner, promotion, safety approval, native-runtime revalidation or operational deployment occurs.
+
+`src/edgevision/review.py` owns bounded threshold validation, per-condition gates and read-only shared evidence collection; `pipeline.py` exposes flags and create-new report export. `tests/test_review.py` independently checks a four-sample confusion example where75% aggregate accuracy masks zero class recall, exact threshold inclusivity, all gate failures, invalid limits/corruptions, actual three-runtime/four-condition evidence, no-overwrite and tampered artifacts. Existing native C++/Rust oracles remain separate mandatory CI gates.

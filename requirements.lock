@@ -10,7 +10,7 @@ coverage==7.16.2
 cyclonedx-python-lib==11.12.0
 defusedxml==0.7.1
 editables==0.6
-filelock==4.0.1
+filelock==4.2.1
 flatbuffers==25.12.19
 hatchling==1.32.4
 idna==3.20
@@ -20,7 +20,7 @@ license-expression==30.4.4
 markdown-it-py==4.2.0
 mdurl==0.1.2
 ml-dtypes==0.6.0
-msgpack==1.2.2
+msgpack==1.2.3
 mypy==2.4.0
 mypy-extensions==1.1.0
 numpy==2.5.4
