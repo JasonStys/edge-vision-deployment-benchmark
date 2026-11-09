@@ -1,5 +1,11 @@
 # Edge Vision Deployment Benchmark
 
+## Candidate review envelope
+
+For a deployment engineer comparing the portable, ONNX float32 and dynamic-int8 variants, `python -m edgevision review --root . --report NEW.json` verifies the artifact manifest and evaluates **each runtime on the same held-out48 synthetic samples under clean, Gaussian noise, center occlusion and dimming conditions**. Every condition reports its confusion matrix, per-class recall, accuracy, calibration error and probability agreement with the portable reference. A weak class cannot hide behind high average accuracy.
+
+Customize laboratory acceptance gates with `--minimum-accuracy`, `--minimum-class-recall`, `--maximum-ece` and `--maximum-runtime-error` (finite0–1). The dossier names failed condition/gate pairs and includes dataset/model fingerprints, model bytes and fresh same-session latency/memory measurements for informed tradeoffs. It never chooses/promotes a model or changes release thresholds; export refuses existing files. Standard output also supports pipeline integration. See [review workflow](docs/DEPLOYMENT_REVIEW.md) and [validation](docs/reports/practical-workflows-20261109.md).
+
 [![CI](https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/workflows/ci.yml/badge.svg)](https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/workflows/ci.yml)
 [![CodeQL](https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/workflows/codeql.yml/badge.svg)](https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/workflows/codeql.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
