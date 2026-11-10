@@ -2,4 +2,4 @@
 * text=auto eol=lf
 *.onnx binary
 *.npz binary
-
+docs/reports/project-guide.docx binary

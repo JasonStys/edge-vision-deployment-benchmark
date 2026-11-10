@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "project": "edge-vision-deployment-benchmark",
+  "author": "Jason Stys",
+  "editionDate": "2026-11-09",
+  "sourceBaseline": "a506fe82222da8a8e7e566404dddd88b4f002fd3",
+  "sourceUrl": "https://github.com/JasonStys/edge-vision-deployment-benchmark/tree/a506fe82222da8a8e7e566404dddd88b4f002fd3",
+  "functionalEvidenceBaseline": "a506fe82222da8a8e7e566404dddd88b4f002fd3",
+  "evidenceObservedAt": "2026-11-10T05:25:40.628667+00:00",
+  "workflowEvidence": [
+    {
+      "conclusion": "success",
+      "databaseId": 42720032113,
+      "event": "push",
+      "headSha": "a506fe82222da8a8e7e566404dddd88b4f002fd3",
+      "name": "CodeQL",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/runs/42720032113"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42720032306,
+      "event": "push",
+      "headSha": "a506fe82222da8a8e7e566404dddd88b4f002fd3",
+      "name": "CI",
+      "status": "completed",
+      "url": "https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/runs/42720032306"
+    }
+  ],
+  "summary": "Compare verified runtimes across shared held-out clean, noise, occlusion and dim conditions with per-class recall, calibration and explicit configurable failure gates.",
+  "rationale": "Supports deployment tradeoffs using the same evidence rather than incompatible aggregate timing or accuracy claims.",
+  "limitations": [
+    "Synthetic 8x8 shapes only; no camera, people or safety-critical deployment qualification.",
+    "Timing is host-specific, memory tracing is Python-only and energy uses an assumed-wattage proxy rather than measured power.",
+    "Quality gates use controlled held-out conditions; they are not certification of arbitrary model/runtime combinations."
+  ],
+  "documents": [
+    {
+      "filename": "project-guide.docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "bytes": 45375,
+      "sha256": "809a66cd5b5210f72c12fe263a9477b3347179aa62a7e2425628b8f7a775f8ce",
+      "sourceBaseline": "a506fe82222da8a8e7e566404dddd88b4f002fd3",
+      "visualReview": {
+        "approved": true,
+        "method": "Every rendered page individually viewed at readable original resolution",
+        "pageCount": 6,
+        "renderedPageSha256": {
+          "page-1.png": "3648ea4562c5f45e448cf4534f187716f3db5f218944eead8eb1483b07ef6073",
+          "page-2.png": "c93029a1c0e349537a1b8aa2a0e43fd8905235fc1aac82175c12b862829b39f2",
+          "page-3.png": "b459c57d1551f09511c5e04138681078b2f493b4532d63e05b38c4bb07882739",
+          "page-4.png": "0054e366cc08face893419a2b588f6bae297509cb33e8bd6ace55dabebe7ab78",
+          "page-5.png": "dabff70adf5408ccc78a4622b0815654e00269cc4e209733098a0153c411b14a",
+          "page-6.png": "0e609dde7310695f1b3b5d0bfbef174a36bee12ed05d8e320d3abe4fda655796"
+        }
+      }
+    }
+  ],
+  "scope": "Reviewed documentation editions of the cited source. Checksums identify bytes, not authorship. Historical measurements retain their own dates; integration CI must be checked separately."
+}
