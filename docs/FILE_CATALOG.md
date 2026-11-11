@@ -140,3 +140,11 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 - `docs/reports/generated/metrics.json`: clean, baseline, corruption, calibration, and agreement data.
 - `docs/reports/generated/benchmark.json`: host-local methodology and runtime measurements.
 - `docs/reports/generated/validation.json`: machine-readable integrity/structure/agreement status.
+
+## Current installed application documentation
+
+- `docs/reports/windows-application-guide-1.1.0.docx`: peer-reviewed illustrated installed app guide.
+- `docs/reports/windows-application-guide-1.1.0.json`: exact document, source, screenshot and reviewed-page digests.
+- `docs/reports/installed-windows-1.1.0-2026-11-11.md`: observed installed workflows and practical limits.
+- `scripts/publication-text.mjs`: exact named Word XML/relationships inspection with bounded ZIP inflation; unknown Word filenames remain strict UTF-8.
+- `scripts/publication-text.test.mjs`: independent real-ZIP corruption, expansion and path-allowlist regressions.

@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "repository": "edge-vision-deployment-benchmark",
+  "runtimeVersion": "1.1.0",
+  "runtimeSource": "5d1727699d9707cda117091f76fe59d8e9e25864",
+  "createdAt": "2026-11-11T13:15:04.185Z",
+  "author": "Jason Stys",
+  "document": "windows-application-guide-1.1.0.docx",
+  "sha256": "26c09d8d47aa5d60a00b88cbb7ed5c9520b70a83ef4ee7aefa0d551973494f00",
+  "screenshots": [
+    {
+      "file": "native-five-engines.png",
+      "sha256": "373bf3ccfa54295cad57a0c66bdd1fc00c68766357d3634968eab01eff9e7eef",
+      "width": 1276,
+      "height": 919,
+      "caption": "The installed app runs the real numeric engines and displays per-row class probabilities and reference error. The table scrolls to additional engine results."
+    },
+    {
+      "file": "native-review-gates.png",
+      "sha256": "14c51edfb798287b16b634b11e273cde1b7e2aa31a134c6ac4b04bdd9ec130dc",
+      "width": 1276,
+      "height": 919,
+      "caption": "All twelve candidate/condition rows remain visible. Deliberately zero calibration/reference-error limits produce review failures despite perfect accuracy, demonstrating the separate gates."
+    }
+  ],
+  "snippets": [
+    {
+      "file": "src/edgevision/review.py",
+      "first": 60,
+      "last": 74,
+      "sha256": "3eebcf365e3bfdfac4d1b36ef74b3cbc2b0b96c6bc0b3015a4bd2c5f42d59da7",
+      "url": "https://github.com/JasonStys/edge-vision-deployment-benchmark/blob/5d1727699d9707cda117091f76fe59d8e9e25864/src/edgevision/review.py#L60"
+    }
+  ],
+  "observedTests": [
+    {
+      "name": "Actual installed native journeys",
+      "observed": "Two installed launches passed editable vectors, five actual engines, all review rows, exact exports, real rebuild, pending-write ownership and retained state with normal exits 0/0.",
+      "result": "Passed"
+    },
+    {
+      "name": "Original engines and security",
+      "observed": "Original scientific thresholds, training/export tests, genuine CTest and Rust kernel cases, all-engine numerical agreement, source boundary controls and three-language processed CodeQL passed on exact main.",
+      "result": "Passed"
+    },
+    {
+      "name": "Package and runtime identity",
+      "observed": "Five independently downloaded assets matched provider SHA-256. Actual installed bytes and source/runtime identities matched the reviewed clean-main proof.",
+      "result": "Passed"
+    },
+    {
+      "name": "Launch and privacy boundary",
+      "observed": "Individual Desktop and Start-menu link targets passed read-back. Installed EXEs were exercised separately with synthetic profiles; normal default-profile shortcut activation was not independently exercised.",
+      "result": "Passed"
+    }
+  ],
+  "visualReview": {
+    "approved": true,
+    "reviewer": "audit_apps",
+    "ooxmlSchema": "passed",
+    "pages": [
+      {
+        "page": 1,
+        "sha256": "7bfc711eeae95597acdc63c09e78ec7c4698ebdd1029c88833800ee6a66709fa"
+      },
+      {
+        "page": 2,
+        "sha256": "5b0d6b2402c7b3bea09d4edffbaad2212da08bbf2cbaa20b12eb82f3e199d949"
+      },
+      {
+        "page": 3,
+        "sha256": "45a29ce9ecb1247aebde6011f50cc69a8b6c4ec637f73407be7e8791fbfda6c8"
+      },
+      {
+        "page": 4,
+        "sha256": "0a63be6f45e8ac11741f07c5044557403e6895591e63562a47916370d99f64ff"
+      }
+    ],
+    "scope": "Every final page individually reviewed; only exact identical pixel hashes carry prior inspection. Screenshots show actual installed synthetic workflows.",
+    "checkedUtc": "2026-11-11T13:36:11.390571+00:00"
+  }
+}
