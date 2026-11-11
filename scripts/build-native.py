@@ -235,7 +235,10 @@ def main(argv: list[str] | None = None) -> int:
     changed = command([*git, "status", "--porcelain", "--untracked-files=all"]).strip()
     dirty = bool(changed)
     if os.environ.get("CI") and dirty:
-        raise ValueError("Hosted native acceptance requires a clean exact checkout")
+        raise ValueError(
+            "Hosted native acceptance requires a clean exact checkout; changed relative paths: "
+            + changed[:4096]
+        )
     if os.environ.get("GITHUB_ACTIONS") == "true" and os.environ.get("GITHUB_SHA") != source:
         raise ValueError("Hosted native checkout differs from the declared workflow source")
     generated = ROOT / ".runtime" / ("native-metadata-" + secrets.token_hex(8))

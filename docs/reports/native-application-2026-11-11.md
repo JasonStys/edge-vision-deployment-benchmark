@@ -80,6 +80,14 @@ The workflow now creates only the generated `.runtime` parent before running the
 coverage floor and packaged-application deadlines. The failed run remains available as
 [run 43002334608](https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/runs/43002334608).
 
+A subsequent Windows run completed all 78 tests and the original kernels, then correctly refused a
+dirty checkout before freezing. That log did not retain the changed paths, so it cannot establish
+which file changed. Review found that an original artifact test called the report-writing validator
+on the checked-in root. The test now copies every manifest-listed input to its own temporary root,
+runs the same real checks and asserts the original captured report remains byte-identical. Current
+numerical observations stay test-local. The unchanged clean-source guard now includes bounded
+relative-path diagnostics if another mutation occurs; no tracked output is reset or hidden.
+
 The offline startup explicitly disables vendor telemetry before initialization using the
 [official opt-out](https://github.com/microsoft/onnxruntime/blob/main/docs/Privacy.md), then invokes
 the event-disable API. An early frozen hook enforces the same process-only policy. Two fresh actual

@@ -4,16 +4,27 @@ Functions: test cases exercise the repository evidence as an integration surface
 and validation reports are test-local; exact declaration lines are in docs/CODE_INDEX.md.
 """
 
+import json
+import shutil
 from pathlib import Path
 
 from edgevision.pipeline import build_artifacts, build_parser, main, validate_artifacts
 
 
-def test_checked_in_artifacts_validate() -> None:
+def test_checked_in_artifacts_validate(tmp_path: Path) -> None:
+    """Validate exact checked-in inputs while retaining observations only in test-local output."""
     root = Path(__file__).resolve().parents[1]
-    report = validate_artifacts(root)
+    original = (root / "docs/reports/generated/validation.json").read_bytes()
+    manifest = json.loads((root / "artifacts/manifest.json").read_text(encoding="utf-8"))
+    for name in (*manifest["files"], "artifacts/manifest.json"):
+        target = tmp_path / name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(root / name, target)
+    report = validate_artifacts(tmp_path)
     assert report["status"] == "passed"
     assert report["onnx_reference_max_abs"] <= 1e-5
+    assert json.loads((tmp_path / "docs/reports/generated/validation.json").read_bytes()) == report
+    assert (root / "docs/reports/generated/validation.json").read_bytes() == original
 
 
 def test_cli_parser_accepts_documented_commands() -> None:
