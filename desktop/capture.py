@@ -5,11 +5,10 @@ Symbols: capture uses a bounded PrintWindow bitmap; no desktop capture or input 
 
 from __future__ import annotations
 
-import ctypes
+import ctypes.wintypes
 import struct
 import sys
 import zlib
-from ctypes import wintypes
 from pathlib import Path
 
 from desktop.application import Application
@@ -34,7 +33,7 @@ def capture(window: Application, target: Path) -> None:
         (gdi, "DeleteDC", [pointer], ctypes.c_int),
         (user, "ReleaseDC", [pointer, pointer], ctypes.c_int),
         (user, "PrintWindow", [pointer, pointer, ctypes.c_uint], ctypes.c_int),
-        (user, "GetWindowRect", [pointer, ctypes.POINTER(wintypes.RECT)], ctypes.c_int),
+        (user, "GetWindowRect", [pointer, ctypes.POINTER(ctypes.wintypes.RECT)], ctypes.c_int),
         (
             gdi,
             "GetDIBits",
@@ -46,7 +45,7 @@ def capture(window: Application, target: Path) -> None:
         function.argtypes, function.restype = arguments, result
     window.root.update_idletasks()
     handle = user.GetAncestor(window.root.winfo_id(), 2)
-    rectangle = wintypes.RECT()
+    rectangle = ctypes.wintypes.RECT()
     if not user.GetWindowRect(handle, ctypes.byref(rectangle)):
         raise OSError("owned window bounds unavailable")
     width, height = rectangle.right - rectangle.left, rectangle.bottom - rectangle.top
