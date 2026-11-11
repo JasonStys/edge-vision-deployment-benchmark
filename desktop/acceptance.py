@@ -7,6 +7,7 @@ No normal user profile, desktop input injection, network or alternate demo execu
 from __future__ import annotations
 
 import hashlib
+import os
 import time
 from pathlib import Path
 from threading import Event
@@ -79,6 +80,8 @@ def exercise(window: Application, root: Path, identity: dict, *, reopen: bool) -
             "Native prediction rows differ from captured results",
         )
         receipt["loadedAppLocalLibraries"] = loaded_libraries()
+        require(os.environ.get("ORT_DISABLE_TELEMETRY") == "1", "Vendor opt-out is not configured")
+        receipt["vendorTelemetryOptOutConfigured"] = True
 
     def first_journey():  # noqa: PLR0915 - explicit sequential real controls and independent oracles
         """Prepare/edit/import/infer/review/rebuild/export through normal application controls."""
@@ -113,6 +116,18 @@ def exercise(window: Application, root: Path, identity: dict, *, reopen: bool) -
             len(window.review_rows.get_children()) == EXPECTED_REVIEW_ROWS,
             "Model-by-condition review is incomplete",
         )
+        metrics = [
+            result["metrics"]["ece_10_bin"]
+            for candidate in window.last_evidence["result"]["candidates"].values()
+            for result in candidate["conditions"].values()
+        ]
+        for row, actual in zip(window.review_rows.get_children(), metrics, strict=True):
+            shown = float(window.review_rows.item(row)["values"][4])
+            require(
+                (shown > 0 if actual > 0 else shown == 0)
+                and abs(shown - actual) <= max(1e-14, abs(actual) * 0.001),
+                "Native calibration display hid or misstated the actual metric",
+            )
         require(
             all(
                 not item["eligible"]

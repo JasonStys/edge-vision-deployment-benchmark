@@ -7,8 +7,8 @@ the original C++/Rust inference algorithms are unchanged.
 
 ## Results
 
-- Full original and new Python suite: **76 passed, zero skips**, CPython 3.14.10, 8.03 s in the observed
-  run. Coverage was **97.59% combined statements/branches for `edgevision`**, above the unchanged 94%
+- Full original and new Python suite: **78 passed, zero skips**, CPython 3.14.10, 5.88 s in the observed
+  run. Coverage was **97.60% combined statements/branches for `edgevision`**, above the unchanged 94%
   floor. This denominator excludes new desktop widgets and native C++/Rust coverage. Actual widget
   tests and compiled-application journeys are reported separately rather than called 100% coverage.
 - Ruff format/lint of new native source/tests and strict original mypy passed. Strict mypy remains
@@ -72,3 +72,11 @@ acceptance, all hosted original/security/native checks, review and delivery rema
 A later pre-acceptance build correctly refused source-index regeneration during freezing. That
 source-guard failure is preserved separately, not counted as a compiled-application pass. Final
 post-commit native evidence and hosted results are recorded in the review handoff.
+
+The offline startup explicitly disables vendor telemetry before initialization using the
+[official opt-out](https://github.com/microsoft/onnxruntime/blob/main/docs/Privacy.md), then invokes
+the event-disable API. An early frozen hook enforces the same process-only policy. Two fresh actual
+interpreter cases remove or negate the inherited setting and verify the opt-out precedes every
+observed vendor import and the official API is called. Frozen normal-app journeys also verify the
+configured opt-out. This is configuration proof, not an OS-wide traffic capture or a claim about an
+external caller that initialized the SDK first. Scientific algorithms and original gates are unchanged.

@@ -259,6 +259,8 @@ def main(argv: list[str] | None = None) -> int:
         "--clean",
         "--console" if arguments.console_diagnostics else "--windowed",
         "--onedir",
+        "--runtime-hook",
+        str(ROOT / "desktop/frozen_privacy.py"),
         "--name",
         "EdgeVisionWorkbench",
         "--paths",

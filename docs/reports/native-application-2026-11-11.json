@@ -5,14 +5,14 @@
   "sourceBaseline": "e127330a714aafd6ba875e45c82850b386384b80",
   "sourceStatus": "Observed development candidates were dirty; exact clean-source and hosted proof are separate acceptance gates",
   "python": {
-    "tests": 76,
+    "tests": 78,
     "skipped": 0,
     "failed": 0,
     "python": "3.14.10",
-    "scientificCombinedCoveragePercent": 97.59,
+    "scientificCombinedCoveragePercent": 97.6,
     "unchangedFloorPercent": 94,
-    "coveredStatements": 716,
-    "totalStatements": 727,
+    "coveredStatements": 719,
+    "totalStatements": 730,
     "coveredBranches": 175,
     "totalBranches": 186,
     "coverageScope": "Original edgevision scientific code only, not desktop/native code"
@@ -21,12 +21,12 @@
     "cppCtest": 1,
     "rustTests": 3,
     "customRuntimeCount": 5,
-    "unchangedAgreementBound": 1E-05,
-    "largestObservedReferenceError": 1.0728836059570312E-06
+    "unchangedAgreementBound": 1e-05,
+    "largestObservedReferenceError": 1.0728836059570312e-06
   },
   "actualZipGuards": 14,
   "compiledDevelopment": {
-    "checkpoint": "pilot-007",
+    "checkpoint": "pilot-009-privacy",
     "launches": 2,
     "exitCodes": [
       0,
@@ -40,7 +40,8 @@
     "sourceDirty": true,
     "scope": "Complete ZIP relocation and actual native controls, rebuild, inference, review, export, restart, pending work",
     "actualPendingWritesCompleted": true,
-    "archiveSha256": "f210b0acbb156492e414348d5662f1a4de06cc65fa91c328a675e1a7b275739b"
+    "archiveSha256": "574c274f503f2597a7508c3f03b4a40e1968c673ddcf7061b2020623b62ea2ab",
+    "vendorTelemetryOptOutConfigured": true
   },
   "dependencyAudit": {
     "graph": "requirements-native.lock plus original requirements.lock",
@@ -53,5 +54,11 @@
     "Synthetic labelled8x8 shapes; no arbitrary model/code import or automatic deployment",
     "One OS-owner plaintext bounded profile; no application accounts or concurrent same-owner namespace protection",
     "Python predict timings and native process-plus-I/O timings have different scopes"
-  ]
+  ],
+  "privacy": {
+    "policy": "Process-scoped pre-initialization vendor opt-out, event-disable API and early frozen hook",
+    "freshActualInterpreterCases": 2,
+    "observedImportOrder": "passed",
+    "scope": "Opt-out configuration, not OS-wide traffic certification"
+  }
 }

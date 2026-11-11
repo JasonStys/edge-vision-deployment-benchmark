@@ -406,7 +406,7 @@ class Application:
                         condition,
                         f"{metrics['accuracy']:.3f}",
                         f"{worst:.3f}",
-                        f"{metrics['ece_10_bin']:.4f}",
+                        f"{metrics['ece_10_bin']:.4g}",
                         f"{result['reference_max_abs']:.3g}",
                         "pass" if all(result["gates"].values()) else "review failures",
                     ),
@@ -453,7 +453,9 @@ class Application:
             (
                 "Prepare/import exact 8x8 vector CSV or draw one synthetic pattern. Run "
                 "NumPy/ONNX or all five actual engines, then review every model under four "
-                "conditions. Gates are advisory; nothing deploys automatically. Rebuild "
+                "conditions. Gates are advisory; nothing deploys automatically. "
+                "ECE is 10-bin expected calibration error; lower is better. Reference error "
+                "compares probabilities with the portable model. Rebuild "
                 "runs the original training/export/release checks in a new generation. "
                 "Prior generations/reports remain, up to 100 each. Save edited CSV explicitly. "
                 "Scroll the input horizontally and predictions vertically. Close normally before "

@@ -51,6 +51,12 @@ are result snapshots, not a full backup. No automatic retention deletion is adde
 exports stay where the user chooses them. No telemetry, camera, external model import or automatic
 deployment is added.
 
+The process sets the vendor's `ORT_DISABLE_TELEMETRY=1` before ONNX Runtime initializes and invokes
+its event-disable API. A frozen early hook applies the same policy before application imports.
+This follows the [vendor privacy documentation](https://github.com/microsoft/onnxruntime/blob/main/docs/Privacy.md).
+The test proves configured import order, not an OS-wide network audit. An external embedding caller
+that already initialized the SDK remains responsible for that earlier initialization.
+
 ## Build and verify
 
 Build-time tools are separate from end-user requirements. Use an isolated CPython 3.14.10 environment,

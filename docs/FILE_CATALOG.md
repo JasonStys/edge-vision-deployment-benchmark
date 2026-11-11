@@ -112,6 +112,7 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 - `desktop/acceptance.py`: marked synthetic real-control journeys, independent oracles and pending-write handshake.
 - `desktop/capture.py`: bounded capture of the exact owned window; no desktop/input automation.
 - `desktop/runtime_libraries.py`: actual loaded vendor DLL origin/hash checks in frozen Windows acceptance.
+- `desktop/frozen_privacy.py`: process-only vendor opt-out before frozen application imports.
 - `scripts/build-kernels.ps1`: reproducible original C++/Rust tests and static-CRT Windows kernel builds.
 - `scripts/check-crt.ps1`: read-only Microsoft signature/company checks for fixed licensed app-local libraries.
 - `scripts/build-native.py`: allowlisted resources, real notices, fixed vendor import handling and source-bound freezing.
@@ -123,6 +124,7 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 - `tests/test_desktop_project.py`: actual scientific engines and independent malformed-input/generation checks.
 - `tests/test_desktop_widgets.py`: actual Windows widgets, display failure handling and retained pending-work close.
 - `tests/test_native_archive.py`: actual ZIP, relocation, expansion, metadata and marker refusal cases.
+- `tests/test_runtime_privacy.py`: fresh-process real import-order/API checks with absent or disabled inherited opt-out.
 - `docs/native-application.md`: practical workflow, build/recovery instructions and ownership/model limits.
 - `docs/reports/native-application-2026-11-11.md`: actual validation results and preserved genuine packaging failures.
 - `docs/reports/native-application-2026-11-11.json`: bounded machine-readable observed counts and scope.
