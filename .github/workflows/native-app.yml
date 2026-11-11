@@ -47,7 +47,9 @@ jobs:
           python -m pip install --no-build-isolation --no-deps .
           rustup toolchain install 1.98.1 --profile minimal
       - name: Verify actual profile, widget, model and archive boundaries
-        run: python -m pytest --basetemp=.runtime/windows-tests
+        run: |
+          New-Item -ItemType Directory -Force .runtime | Out-Null
+          python -m pytest --basetemp=.runtime/windows-tests
       - name: Audit the exact Windows dependency graph
         run: python -m pip_audit --strict --disable-pip --no-deps --progress-spinner off --requirement requirements-native.lock
       - name: Build and test the original C++ and Rust inference engines

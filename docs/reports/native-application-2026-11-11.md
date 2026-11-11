@@ -73,6 +73,13 @@ A later pre-acceptance build correctly refused source-index regeneration during 
 source-guard failure is preserved separately, not counted as a compiled-application pass. Final
 post-commit native evidence and hosted results are recorded in the review handoff.
 
+The first hosted Windows native job failed before packaging because its nested pytest
+`--basetemp=.runtime/windows-tests` parent did not exist on a fresh checkout. This produced 48 fixture
+setup errors and an incomplete coverage result; it was not a completed test-suite or native-app run.
+The workflow now creates only the generated `.runtime` parent before running the unchanged suite,
+coverage floor and packaged-application deadlines. The failed run remains available as
+[run 43002334608](https://github.com/JasonStys/edge-vision-deployment-benchmark/actions/runs/43002334608).
+
 The offline startup explicitly disables vendor telemetry before initialization using the
 [official opt-out](https://github.com/microsoft/onnxruntime/blob/main/docs/Privacy.md), then invokes
 the event-disable API. An early frozen hook enforces the same process-only policy. Two fresh actual
