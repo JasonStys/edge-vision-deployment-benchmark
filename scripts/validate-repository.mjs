@@ -5,6 +5,7 @@
 import { createHash } from "node:crypto";
 import { access, readFile, readdir, stat } from "node:fs/promises";
 import { relative, resolve } from "node:path";
+import { publicationText } from "./publication-text.mjs";
 
 const repository = resolve(import.meta.dirname, "..");
 const requiredDocuments = [
@@ -63,7 +64,10 @@ for (const file of files) {
   }
 }
 
-const searchable = (await Promise.all(files.map((file) => readFile(file, "utf8").catch(() => "")))).join("\n");
+const searchable = (await Promise.all(files.map((file) => {
+  const path = relative(repository, file).replaceAll("\\", "/");
+  return path.endsWith(".docx") ? publicationText(file, path) : readFile(file, "utf8").catch(() => "");
+}))).join("\n");
 const unresolvedMarkers = [new RegExp("\\bTO" + "DO\\b"), new RegExp("\\bFIX" + "ME\\b")];
 record(!unresolvedMarkers.some((pattern) => pattern.test(searchable)), "unresolved task marker found");
 
