@@ -16,3 +16,6 @@ native/cpp/build*/
 native/rust/target/
 .runtime/
 .pip-audit-cache/
+artifacts/native/
+release/
+*.spec

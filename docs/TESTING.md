@@ -29,6 +29,14 @@ headers, workflow SHA pins, checksums, shell syntax, and the code index.
 
 ## Manual testing
 
+The separate Windows native workflow builds the actual application with patched Python 3.14.10,
+compiled original C++/Rust engines and verified app-local vendor DLLs. It relocates a complete ZIP and
+uses actual controls twice with marked synthetic profiles. Tests include custom CSV, invalid inputs,
+all five engines, review gates, export/no-overwrite, real rebuild, restart and event-held pending-work
+Quit. Four source widget tests run on Windows; headless original Linux tests explicitly skip that
+Windows-only widget scope. Original 94% scientific coverage is unchanged and does not include GUI code.
+See [observed native validation](reports/native-application-2026-11-11.md).
+
 Before a release on a target edge device, repeat the benchmark across cold starts and sustained load,
 measure process RSS and physical power, test the expected camera preprocessing path, and inspect a
 failure gallery using representative field data. Those device- and domain-specific steps are not

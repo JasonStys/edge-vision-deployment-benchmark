@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "edge-vision-deployment-benchmark"
-version = "1.0.0"
+version = "1.1.0"
 description = "Reproducible neural-image deployment, ONNX export, robustness evaluation, and native runtime benchmarking."
 readme = "README.md"
 requires-python = ">=3.12,<3.15"

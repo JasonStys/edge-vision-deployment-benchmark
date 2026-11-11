@@ -21,6 +21,9 @@ from edgevision.constants import (
     MAX_ONNX_BYTES,
 )
 
+# Also disable the official event API; the package already set the pre-initialization opt-out.
+ort.disable_telemetry_events()
+
 FloatArray = NDArray[np.float32]
 
 

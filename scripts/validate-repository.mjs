@@ -15,10 +15,11 @@ const requiredDocuments = [
   "docs/FILE_CATALOG.md", "docs/CODE_INDEX.md", "docs/reports/VALIDATION.md",
   "docs/reports/TEST_SUMMARY.md", "docs/reports/PERFORMANCE.md",
 ];
-const sourceExtensions = /(?:\.py|\.mjs|\.sh|\.cpp|\.hpp|\.rs|\.yml|\.yaml|CMakeLists\.txt|Dockerfile)$/;
+const sourceExtensions = /(?:\.py|\.ps1|\.mjs|\.sh|\.cpp|\.hpp|\.rs|\.yml|\.yaml|CMakeLists\.txt|Dockerfile)$/;
 const exclusions = new Set([
   ".git", ".venv", ".runtime", ".mypy_cache", ".ruff_cache", ".pytest-runtime",
   ".pytest_cache", "build", "target", "__pycache__", "htmlcov",
+  "release",
 ]);
 const problems = [];
 
@@ -26,6 +27,7 @@ async function walk(directory) {
   const files = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
     if (exclusions.has(entry.name) || entry.name.startsWith("build-")) continue;
+    if (directory === resolve(repository, "artifacts") && entry.name === "native") continue;
     const path = resolve(directory, entry.name);
     if (entry.isDirectory()) files.push(...await walk(path));
     else files.push(path);
