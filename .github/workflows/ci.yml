@@ -34,8 +34,8 @@ jobs:
           python -m pip install --no-build-isolation --no-deps .
       - name: Check formatting, lint, and strict types
         run: |
-          python -m ruff format --check src tests scripts/compare-native.py
-          python -m ruff check src tests scripts/compare-native.py
+          python -m ruff format --check src desktop tests scripts/compare-native.py scripts/build-native.py scripts/archive_native.py
+          python -m ruff check src desktop tests scripts/compare-native.py scripts/build-native.py scripts/archive_native.py
           python -m mypy
       - name: Run unit and integration tests with coverage
         run: python -m pytest

@@ -8,8 +8,8 @@ runtime="${root}/.runtime/verify"
 mkdir -p "${runtime}"
 cd "${root}"
 
-python -m ruff format --check src tests scripts/compare-native.py
-python -m ruff check src tests scripts/compare-native.py
+python -m ruff format --check src desktop tests scripts/compare-native.py scripts/build-native.py scripts/archive_native.py
+python -m ruff check src desktop tests scripts/compare-native.py scripts/build-native.py scripts/archive_native.py
 python -m mypy
 python -m pytest
 python -m edgevision validate --root "${root}"

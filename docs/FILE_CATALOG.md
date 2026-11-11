@@ -102,6 +102,35 @@ reviewers can distinguish source, configuration, evidence, and deployment artifa
 
 ## Human and machine-readable reports
 
+## Native workbench files
+
+- `desktop/__init__.py`: identifies the native UI package; no mutable globals or hidden service.
+- `desktop/storage.py`: bounded descriptor reads, strict JSON, owner lock and external profile admission.
+- `desktop/project.py`: real immutable model generations, exact CSV admission and three/five-engine workflows.
+- `desktop/application.py`: genuine editable Tk interface, visible review/results and completion-aware Quit.
+- `desktop/launcher.py`: frozen identity/runtime validation and profile selection before normal data lookup.
+- `desktop/acceptance.py`: marked synthetic real-control journeys, independent oracles and pending-write handshake.
+- `desktop/capture.py`: bounded capture of the exact owned window; no desktop/input automation.
+- `desktop/runtime_libraries.py`: actual loaded vendor DLL origin/hash checks in frozen Windows acceptance.
+- `scripts/build-kernels.ps1`: reproducible original C++/Rust tests and static-CRT Windows kernel builds.
+- `scripts/check-crt.ps1`: read-only Microsoft signature/company checks for fixed licensed app-local libraries.
+- `scripts/build-native.py`: allowlisted resources, real notices, fixed vendor import handling and source-bound freezing.
+- `scripts/archive_native.py`: bounded complete ZIP relocation, two actual app processes and post-exit receipt checks.
+- `requirements-native.lock`: exact Windows freezer graph extending original scientific dependencies.
+- `licenses/flatbuffers-25.12.19.LICENSE`: exact tagged Apache license omitted from the installed vendor wheel.
+- `.github/workflows/native-app.yml`: actual Windows compiled consumer; bounded default evidence and opt-in full payload.
+- `tests/test_desktop_storage.py`: genuine ownership, hardlink/junction/frozen-root and no-overwrite regressions.
+- `tests/test_desktop_project.py`: actual scientific engines and independent malformed-input/generation checks.
+- `tests/test_desktop_widgets.py`: actual Windows widgets, display failure handling and retained pending-work close.
+- `tests/test_native_archive.py`: actual ZIP, relocation, expansion, metadata and marker refusal cases.
+- `docs/native-application.md`: practical workflow, build/recovery instructions and ownership/model limits.
+- `docs/reports/native-application-2026-11-11.md`: actual validation results and preserved genuine packaging failures.
+- `docs/reports/native-application-2026-11-11.json`: bounded machine-readable observed counts and scope.
+- `docs/images/native-five-engines.png`: actual native prediction window with prepared editable synthetic data.
+- `docs/images/native-review-gates.png`: actual native twelve-row review with explicitly strict advisory gates.
+
+## Existing human and machine-readable reports
+
 - `docs/reports/VALIDATION.md`: release integrity and agreement results.
 - `docs/reports/TEST_SUMMARY.md`: Python/native suite and coverage results.
 - `docs/reports/PERFORMANCE.md`: interpretation plus local latency/model-size characterization.

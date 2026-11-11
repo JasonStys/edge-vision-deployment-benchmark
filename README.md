@@ -1,5 +1,29 @@
 # Edge Vision Deployment Benchmark
 
+## Native authoring and deployment workbench
+
+**Edge Vision Workbench 1.1.0** adds a real Windows desktop interface to the existing model and
+inference engines. Prepare editable held-out CSV data, import your own bounded 8×8 vectors, or draw
+a pattern; compare actual NumPy, ONNX float32, ONNX int8, C++ and Rust predictions. Inspect all
+model/condition review rows, change advisory gates, export captured evidence, and rebuild the original
+reference model into a new retained generation. This remains a synthetic-shape engineering lab;
+probabilities and laboratory timings do not establish real-camera performance.
+
+The unsigned Windows candidate bundles patched Python 3.14.10, Tcl/Tk, scientific libraries and both
+compiled inference engines. Users launch `EdgeVisionWorkbench.exe` without Python, a compiler, an IDE
+or setup commands. The complete extracted folder must stay together. Data lives in a separate
+OS-owner profile, with exclusive ownership, no network service and no silent reset of unfamiliar
+state. Quit retains actual pending computation and file work before releasing that profile.
+
+See [native usage and build instructions](docs/native-application.md),
+[observed validation and packaging fixes](docs/reports/native-application-2026-11-11.md), and
+[limitations](docs/LIMITATIONS.md). Public release, installation and clean-main hosted acceptance
+remain separate delivery steps until their actual evidence is available.
+
+![Actual Windows app comparing five engines on editable synthetic vectors](docs/images/native-five-engines.png)
+
+![Actual app exposing twelve model and condition rows with strict advisory gate failures](docs/images/native-review-gates.png)
+
 ## Candidate review envelope
 
 For a deployment engineer comparing the portable, ONNX float32 and dynamic-int8 variants, `python -m edgevision review --root . --report NEW.json` verifies the artifact manifest and evaluates **each runtime on the same held-out48 synthetic samples under clean, Gaussian noise, center occlusion and dimming conditions**. Every condition reports its confusion matrix, per-class recall, accuracy, calibration error and probability agreement with the portable reference. A weak class cannot hide behind high average accuracy.
@@ -58,7 +82,8 @@ together. See [architecture](docs/ARCHITECTURE.md) and the
 
 ## Quick start
 
-Python 3.12–3.14, CMake 3.20+, a C++20 compiler, Rust 1.90, and Node.js 24 are supported.
+The original CLI supports Python 3.12–3.14, CMake 3.20+, a C++20 compiler, Rust 1.90, and Node.js 24.
+The self-contained Windows workbench has its own exact patched build/runtime contract below.
 
 ```bash
 python -m venv .venv

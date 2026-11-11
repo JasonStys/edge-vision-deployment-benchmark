@@ -6,12 +6,13 @@ import { readdir, readFile, writeFile } from "node:fs/promises";
 import { relative, resolve } from "node:path";
 
 const repository = resolve(import.meta.dirname, "..");
-const sourceRoots = ["src", "tests", "scripts", "native/cpp", "native/rust/src"];
+const sourceRoots = ["src", "desktop", "tests", "scripts", "native/cpp", "native/rust/src"];
 const outputPath = resolve(repository, "docs/CODE_INDEX.md");
-const accepted = /(?:\.py|\.mjs|\.sh|\.cpp|\.hpp|\.rs|CMakeLists\.txt)$/;
+const accepted = /(?:\.py|\.ps1|\.mjs|\.sh|\.cpp|\.hpp|\.rs|CMakeLists\.txt)$/;
 const patterns = [
   [/^\s*(?:async\s+)?def\s+([A-Za-z0-9_]+)/, "function"],
   [/^\s*class\s+([A-Za-z0-9_]+)/, "type"],
+  [/^\s*function\s+([A-Za-z0-9_-]+)\s*\(/, "PowerShell function"],
   [/^\s*(?:pub\s+)?(?:fn|struct|enum|trait)\s+([A-Za-z0-9_]+)/, "rust declaration"],
   [/^\s*(?:pub\s+)?const\s+([A-Z][A-Z0-9_]+)/, "constant"],
   [/^\s*inline constexpr\s+[^=]+\s+(k[A-Za-z0-9_]+)/, "constant"],
